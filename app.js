@@ -186,7 +186,7 @@ try {
 }
 });
 //current affair delete
-app.get('/delete/:id',async (req,res)=>{
+app.get('/deleteaffair/:id',async (req,res)=>{
   try {
     const id=req.params.id;
     await current.findByIdAndDelete(id);
