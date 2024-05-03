@@ -160,7 +160,7 @@ app.post('/current',async function(req,res){
 });
 
 //edit of current affair if click edit
-app.get('/edit/:id',async (req,res)=>{
+app.get('/editcontent/:id',async (req,res)=>{
   try {
     const id=req.params.id;
     const result= await current.findById(id);
