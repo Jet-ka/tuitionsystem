@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance System for teacher or tutor</title>
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+    <meta name="description" content="Manage student attendance and details efficiently with our tutor portal.">
+    <meta name="keywords" content=" tutor portal, student attendance, contact details ">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="/css/style.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!--1sst section-->
+      <!--navbar--> 
+   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/page/<%=infos.user_id%>">
+      <!--i can put logo--> 
+        
+        Record.com</a>
+   <!--   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
+      <div class=" navbar-expand" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="/page/<%=infos.user_id%>">Home</a>
+          <a class="nav-link active" href="/">Logout</a>
+          <a class="nav-link active" href="mailto:jetlinkarkha40@gmail.com">Contact us</a>
+      
+        </div>
+      </div>
+    </div>
+  </nav>
+      <!--2nd section-->   
+<div class="main">
+    <h3 id="date"></h3>
+    <a href="/create/<%=infos._id%>" id="createlink">Create new Student</a>
+    
+    <h4 id="headline"><%=infos.name%></h4>
+</div>
+<!--3rd section-->
+<div class=" boxone"> 
+    
+ <table >
+    <!-- tittle of info-->
+
+
+ 
+   <!--1st row-->
+<tr>
+   <th>No.</th>
+   <th>Call</th>
+    <th>Name</th>
+    <th>Class</th>
+    <th>Attendance</th>
+    <th>Total Attendance</th>
+    <th>Fees</th>
+   <!---- <th>Tution days</th>-->
+    <th>Corection</th>
+</tr>
+
+
+<!--2nd row information dynamically fill |-->
+
+
+
+
+<%if(infos.students){%>
+
+
+ <% for (var i = 0; i < infos.students.length; i++) { %> 
+
+<tr>
+
+    <td><%=i+1%></td>
+
+<td>
+    <a href="tel:+91<%=infos.students[i].phone%>"> <i class="fa fa-phone" style="font-size:30px;color:green"></i></a>
+     
+   </td>
+<td><%=infos.students[i].name%></td>
+<td ><%=infos.students[i].clas%></td>
+
+<td>
+    <form action="/result" method="post">
+<!--attendance present or absent details fill-->
+ <!-- Radio buttons for attendance -->
+<input type="radio"   name="attendance" value="present"> Present
+ <input type="radio"  name="attendance" value="absent"> Absent
+ <input type="hidden" name="id" value="<%= infos.students[i]._id %>">
+ <button id="radiosubmitbutton">Submit</button>
+</form>
+<!-- Hidden input field for student ID 
+<input type="hidden" name="id" value="<%= infos.students[i]._id %>"> -->
+</td>
+
+<td>Present: <%= infos.students[i].presentDays %>, Absent: <%= infos.students[i].absentDays %></td>
+<td> 
+   <%=infos.students[i].fees%>    
+</td>
+<!--<td>
+<%=infos.students[i].daysmonth%>
+</td>-->
+<td>
+    <div class="edit">
+    <form action="/edit/<%=infos.students[i]._id%>" method="get">
+    <a href="/edit/<%=infos.students[i]._id%>"> <i class="fa fa-edit" style="font-size:30px;color:green"></i></a>    
+   
+</form>
+<form action="/delete/<%=infos.students[i]._id%>" method="get">
+    <a href="/delete/<%=infos.students[i]._id%>"> <i class="fa fa-trash" style="font-size:30px;color:red"></i></a>
+   
+    </form>
+</div>
+</td>
+
+
+</tr>
+
+<%}%>
+<%}else{%>
+    <p>Please go back to home</p>
+<%}%>
+
+
+ </table>
+        </div>
+<!--4th section-->
+<div class="boxthree">
+<button class=" rank record ">Submit Record</button>
+
+<button class="rank find ">Find</button>
+
+<div id="ullua">
+    <p ></p>
+</div>
+<!--record form will appear-->
+<div class="one">
+<form action="/record/<%=infos._id%>" method="post">
+   <input type="hidden" name="userid" value="<%=infos.user_id%>">
+ <label for="name">Month:</label>
+<select name="month" class="crete" required>
+    <option value="january">January</option>
+    <option value="february">February</option>
+    <option value="march">March</option>
+    <option value="april">April</option>
+    <option value="may">May</option>
+    <option value="june">June</option>
+    <option value="july">July</option>
+    <option value="august">August</option>
+    <option value="september">September</option>
+    <option value="october">October</option>
+    <option value="november">November</option>
+    <option value="december">December</option>
+</select><br><br>
+<label for="name">Name:</label>
+<input type="text " name="name" class="crete" required><br><br>
+<label for="cls">Class:</label>
+<input type="number " name="cls" class="crete" required><br><br>
+<label for="attendance">Total attendance:</label>
+<input type="number " name="attendance" class="crete" required><br><br>
+<label for="fees">Fees:</label>
+<select name="fees" id="" class="crete" required>
+    <option value="paid">Paid</option>
+    <option value="unpaid">Unpaid</option>
+</select> <br><br>
+<label for="amount">Amount:</label>
+<input type="number " name="amount" class="crete" required><br><br>
+<button>Submit</button>
+
+
+</form>
+</div>
+
+<!--find particular student all information-->
+<div class="three">
+<form action="/find" method="post">
+    <input type="hidden" name="id" value="<%=infos._id%>">
+    <input type="hidden" name="userid" value="<%=infos.user_id%>">
+  <!----  <input type="text" name="name" id="calo" class="crete" placeholder="Place Batch Name" required><br><br>-->
+    <select name="month" class="crete" required>
+        <option value="january">January</option>
+        <option value="february">February</option>
+        <option value="march">March</option>
+        <option value="april">April</option>
+        <option value="may">May</option>
+        <option value="june">June</option>
+        <option value="july">July</option>
+        <option value="august">August</option>
+        <option value="september">September</option>
+        <option value="october">October</option>
+        <option value="november">November</option>
+        <option value="december">December</option>
+    </select><br><br>
+ <!----<input type="text" name="name" id="calo" class="crete" placeholder="Place name" required><br><br> -->
+   <button>Find</button>
+</form>
+
+</div>
+
+
+</div>
+<!--4th section footer-->
+<div class="footer">
+  <div class="footone">
+    <a href="#"> <i class="fa fa-facebook" style="font-size:25px;color:green"></i></a> 
+    <a href="#"> <i class="fa fa-instagram" style="font-size:25px;color:rgb(109, 6, 92)"></i></a> 
+
+  </div>
+  <div class="foottwo">
+    <a href="/about/<%=infos.user_id%>">About</a>
+    <a href="/privacy/<%=infos.user_id%>">Privacy</a>
+  </div>
+  <div class="footthree"><h5>&copy;Jetlin Karkha&Co.2024</h5></div>
+  
+
+</div>
+<script src="js/index.js"></script>
+<script src="record/js/index.js"></script>
+<script src="post/js/index.js"></script>
+<script src="home/js/index.js"></script>
+<script src="update/js/index.js"></script>
+<script src="finddel/js/index.js"></script>
+<script src="submit/js/index.js"></script>
+
+
+</body>
+</html>

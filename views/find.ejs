@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance System for teacher or tutor</title>
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+    <meta name="description" content="Manage student attendance and details efficiently with our tutor portal.">
+    <meta name="keywords" content=" tutor portal, student attendance, contact details ">
+    <link rel="stylesheet" href="submit/css/find.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/find/css/find.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      #trick{
+        display:none;
+      }
+    </style>
+</head>
+<body>
+       <!--1sst section-->
+         <!--navbar--> 
+   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/page/<%=userid%>">
+      <!--i can put logo--> 
+        
+        Record.com</a>
+   <!--   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
+      <div class=" navbar-expand" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <% for (var i = 0; i < infos.length; i++) { %>
+            <% if (i === 0) { %>
+                <!-- Display the first user ID -->
+                <a class="nav-link active" href="/page/<%= infos[0].user_id %>">Home</a>
+            <% } else { %>
+                <!-- Hide subsequent user IDs -->
+                <a class="nav-link active" id="trick" style="display: none;" href="/page/<%= infos[i].user_id %>">Home</a>
+            <% } %>
+        <% } %>
+        
+        <a class="nav-link active" href="/">Logout</a>
+          <a class="nav-link active" href="mailto:jetlinkarkha40@gmail.com">Contact us</a>
+      
+        </div>
+      </div>
+    </div>
+  </nav>
+      
+    <div class="main">
+        <table>
+            <tr>
+              <th>No.</th>
+              <th>Name</th>
+            <th>Month</th>
+            <th>Class</th>
+            <th>Atttendance</th>
+            <th>Status</th>
+            <th>Amount</th>
+            <th>Edit</th>
+            </tr>
+<!--all information about that -->
+<%infos.forEach(function(info,num){%>
+    <tr>
+        <td><%=num+1%></td>
+        <td><%=info.name%></td>
+        <td><%=info.month %></td> 
+        <td><%=info.cls %></td>
+        <td><%=info.attendance %></td>
+        <td><%=info.fees %></td>
+        <td><%=info.amount%></td>
+        <td><div class="edit">
+            <form action="/findup/<%=info._id%>" method="get">
+            <a href="/findup/<%=info._id%>"><i class="fa fa-edit" style="font-size:30px;color:green"></i></a>
+            </form>
+            <form action="/finddel/<%=info._id%>" method="post">
+               <a href="/finddel/<%=info._id%>"> <i class="fa fa-trash" style="font-size:30px;color:red"></i></a>
+            </form>
+            </div>
+        </td>
+    </tr>
+ <% })%>
+
+        </table>
+    
+    </div>
+
+    <div class="fot"><h5>&copy;Jetlin Karkha&Co.2024</h5></div>
+    <script src="js/index.js"></script>
+</body>
+</html>

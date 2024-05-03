@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance System for teacher or tutor</title>
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+    <meta name="description" content="Manage student attendance and details efficiently with our tutor portal.">
+    <meta name="keywords" content=" tutor portal, student attendance, contact details ">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      *{
+        margin:0%;
+        padding:0%
+      }
+      .batchid{
+        display:flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items:center;
+        height:500px;
+        padding-top:5px;
+        padding-left:10px;
+      }
+      .crete{
+      width:100%;
+      padding-left: 10px;
+      font-size: 1.2rem;
+      border-radius:20px;
+     height:29px;
+     border:1px solid green;
+
+      }
+
+      .footer{
+    margin-top:200px;
+    padding-top:8px;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    background-color: black;
+    color:#fff;
+}
+.footone{
+    display:flex;
+    justify-content: center;
+    gap:10px;
+}
+.foottwo{
+    display:flex;
+    justify-content: center; 
+    text-decoration-line: none; 
+    gap:10px;
+}
+.footthree{
+    text-align:center;
+}
+    </style>
+</head>
+<body>
+   <!--navbar--> 
+   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/page/<%=infos._id%>">
+      <!--i can put logo--> 
+        
+        Record.com</a>
+   <!--   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
+      <div class=" navbar-expand" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="/page/<%=infos._id%>">Home</a>
+          <a class="nav-link active" href="/">Logout</a>
+          <a class="nav-link active" href="mailto:jetlinkarkha40@gmail.com">Contact us</a>
+      
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!--add batch name button or acnhor-->
+ 
+  <div class="batchid">
+    <div><h4>New Batch</h4></div>
+    <form action="/batch/<%=infos._id%>" method="post" class="batchform">
+      <input type="text" class="crete"  name="name" placeholder="Batch name" required><br><br>
+      <input type="text" class="crete"  name="time" placeholder="time" reuired><br><br>
+     
+      <button class="btn btn-success"  type="submit">Submit</button>
+    </form>
+
+  </div>
+  <div class="footer">
+    <div class="footone">
+      <a href="#"> <i class="fa fa-facebook" style="font-size:25px;color:green"></i></a> 
+      <a href="#"> <i class="fa fa-instagram" style="font-size:25px;color:rgb(109, 6, 92)"></i></a> 
+  
+    </div>
+    <div class="foottwo">
+      <a href="/about/<%=infos._id%>">About</a>
+      <a href="/privacy/<%=infos._id%>">Privacy</a>
+    </div>
+    <div class="footthree"><h5>&copy;Jetlin Karkha&Co.2024</h5></div>
+    
+  
+  </div>
+</body>
+</html>

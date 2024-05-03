@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance System for teacher or tutor</title>
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+    <meta name="description" content="Manage student attendance and details efficiently with our tutor portal.">
+    <meta name="keywords" content=" tutor portal, student attendance, contact details ">
+</head>
+<style>
+    *{
+        margin:0%;
+        padding:0%;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .main{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+       flex-direction: column;
+        gap:8px;
+        height:100vh
+    }
+    .login{
+        width:300px;
+        height: 200px;
+        box-shadow: 0px 0px 10px white;
+        padding-top:20px;
+    }
+    input{
+        border:1px solid green;
+        border-radius:20px;
+        width:90%;
+        height:30px;
+        font-size: 1rem;
+        padding-left: 18px;
+    }
+    button{
+        border:1px solid grren;
+        border-radius:25px;
+        width:296px;
+        height:30px;
+        background-color: blueviolet;
+        color:white;
+        cursor:pointer;
+       
+    }
+    #login{
+        border:1px solid grren;
+        border-radius:25px;
+        width:300px;
+        height:30px;
+        background-color: blueviolet;
+        color:white;
+        cursor:pointer;
+        
+    }
+    button:hover{
+        scale:0.9;
+    }
+    #login:hover{
+        scale:0.9;
+    }
+    img{
+        width:150px;
+        height:150px;
+        border-radius:50%;
+        box-shadow: 0px 0px 10px green;
+    }
+    .fot{
+        font-size: 1rem;
+        display:flex;
+        justify-content: center;
+
+    }
+
+</style>
+<body>
+    <div class="main">
+        <div class="im">
+            <img src="images/logo.png" alt="one hand writing attendance">
+        </div>
+        
+        
+            <form action="/" method="post" class="login">
+                <input type="text" name="name" placeholder="Place your name"required><br><br>
+                <input type="email" name="email" placeholder="name@gmail.com"required><br><br>
+                <input type="number" name="phone" placeholder="Contact Number"required><br><br>
+                <input type="text" name="state" placeholder="Place your State"required><br><br>
+                <input type="text" name="location" placeholder="Your home Address"required><br><br>
+                <input type="password" name="password" placeholder="Password"required><br><br>
+                <button type="submit">signin</button>
+                  
+            </form><br><br><br><br><br><br><br><br>
+           
+            <div class="fot">&copy;<h5>Record.Com:2024</h5></div>
+    </div>
+   
+    <script src="js/index.js"></script>
+</body>
+</html>

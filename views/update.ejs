@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance System for teacher or tutor</title>
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+    <meta name="description" content="Manage student attendance and details efficiently with our tutor portal.">
+    <meta name="keywords" content=" tutor portal, student attendance, contact details ">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href=" /css/style.css">
+</head>
+<body>
+   <!--navbar--> 
+   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/page/<%=infos.user_id%>">
+      <!--i can put logo--> 
+        
+        Record.com</a>
+   <!--   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
+      <div class=" navbar-expand" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="/page/<%=infos.user_id%>">Home</a>
+          <a class="nav-link active" href="/">Logout</a>
+          <a class="nav-link active" href="mailto:jetlinkarkha40@gmail.com">Contact us</a>
+      
+        </div>
+      </div>
+    </div>
+  </nav>
+    <div class="box">
+        <div class="cardtwo">
+        
+            <form action="/update/<%=infos._id%>" method="post">
+                <label>Name:-</label>
+                <input type="text" class="crete" name="name" value="<%=infos.name%>" required><br><br>
+                <label>Class:-</label>
+               <input type="number" class="crete" name="clas" value="<%=infos.clas%>" required><br><br>
+               <label>Phone Number:-</label>
+               <input type="number" class="crete" name="phone" value="<%=infos.phone%>" required><br><br>
+               <lebel>Fees:-</lebel>
+               <input type="number" class="crete" name="fees" value="<%=infos.fees%>" required><br><br>
+            <!----  <label >Total days of tutions:-</label>
+               <input type="number" class="crete" name="daysmonth" value="<%=infos.daysmonth%>"required><br><br>-->
+               <label>Presentdays:-</label>
+               <input type="number" class="crete" name="presentDays" value="<%=infos.presentDays%>"required><br><br>
+               <lebel>Absentdays:-</lebel>
+               <input type="number" class="crete" name="absentDays" value="<%=infos.absentDays%>" required><br><br> 
+              <button type="submit">Submit</button>
+             
+                 </form>
+     
+    </div>
+       </div> 
+       <div class="fot">&copy;<h5>Jetlin Karkha&Co.2024</h5></div>
+       <script src="js/index.js"></script>
+</body>
+</html>
