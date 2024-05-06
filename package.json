@@ -1,11 +1,12 @@
- {
+{
   "name": "tution-attendence",
   "version": "1.0.0",
   "description": "jetlin system",
-  "main": " node index.js",
+  "main": "node index.js",
   "scripts": {
     "start": "node index.js"
   },
+  "$schema": "./package.schema.json",
   "type": "module",
   "keywords": [
     "3232"
@@ -23,4 +24,5 @@
     "nodemailer": "^6.9.13",
     "nodemon": "^3.1.0"
   }
+
 }

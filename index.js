@@ -81,7 +81,9 @@ if(result.name==name && one){
  res.render('info.ejs',{info:data});
 }
   }else{
-res.send('Invalid Details'); 
+    const data='Invalid details';
+    res.render('info.ejs',{info:data});
+   //res.send('Invalid Details'); 
   }
   } catch (error) {
      // console.log(error)
@@ -117,11 +119,11 @@ app.post('/adminpost',async (req,res)=>{
 });
 
 //admin.ejs we find one button to click go to contentpage
-app.get('/content/:id',async function(req,res){
+app.post('/content',async function(req,res){
   try {
-   // const secret=req.body.secret;
-   // console.log(secret)
-   const secret=req.params.id;
+    const secret=req.body.secret;
+   console.log(secret)
+  // const secret=req.params.id;
   // console.log(secret)
     const id = process.env.SECRET;
    // console.log(id)
