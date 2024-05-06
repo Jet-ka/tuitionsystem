@@ -274,7 +274,7 @@ app.post('/forgetpassword', async (req, res) => {
       subject: 'Password Reset for Your Account',
       html: `
         <h2>Click the link below to reset your password:</h2>
-        <a href="http://localhost:3000/resetPassword?token=${token}">Reset Password</a>
+        <a href="https://whale-app-euf9v.ondigitalocean.app/resetPassword?token=${token}">Reset Password</a>
         <p>This link will expire in 1 hour.</p>
       `,
     };
