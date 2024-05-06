@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "jetlin system",
   "main": " node app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
   "type": "module",
   "keywords": [
     "3232"
