@@ -122,7 +122,7 @@ app.post('/adminpost',async (req,res)=>{
 app.post('/content',async function(req,res){
   try {
     const secret=req.body.secret;
-   console.log(secret)
+ //  console.log(secret)
   // const secret=req.params.id;
   // console.log(secret)
     const id = process.env.SECRET;
@@ -712,11 +712,11 @@ app.get('/findup/:id', async function(req,res){
        res.send('Internal Error')
     }
 });
-app.post('/submit/:id', async function(req,res){
+app.post('/submitrecord/:id', async function(req,res){
     try {
       // record student id
         const id=req.params.id;
-       const{attendance,fees}=req.body;
+       const{userid,attendance,fees}=req.body;
        const result= await record.findByIdAndUpdate({_id:id},{$set:{attendance:attendance,fees:fees}});
       // console.log(result);
     
@@ -734,7 +734,7 @@ app.post('/submit/:id', async function(req,res){
        return record.month === result.month ;
    });
    // console.log(response)
-     res.render('find.ejs',{infos:filteredRecords});
+     res.render('find.ejs',{infos:filteredRecords,userid:userid});
      //  res.redirect('/home');
     } catch (error) {                                            
       //console.log(error) ;
@@ -763,7 +763,10 @@ app.get('/finddel/:id', async function(req,res){
       const filteredRecords = batchDetails.records.filter(record => {
           return record.month === result.month ;
       });
-       res.render('find.ejs',{infos:filteredRecords });
+
+      
+     // console.log(filteredRecords)
+       res.render('find.ejs',{infos:filteredRecords,userid:filteredRecords.user_id});
        
        
     } catch (error) {

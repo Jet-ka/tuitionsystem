@@ -40,9 +40,9 @@
      <div id="headupdate"><h1><%=infos.name%></h1></div>
     <div class="boxfour">
      
-        <form action="/submit/<%=infos._id%>" method="post">
-       
-        <label for="attendance">Total attendance:</label>
+        <form action="/submitrecord/<%=infos._id%>" method="post">
+       <input type="hidden" name="userid" value="<%=infos.user_id%>">
+         <label for="attendance">Total attendance:</label>
         <input type="number " name="attendance" class="crete" value="<%=infos.attendance%>" required><br><br>
         <label for="fees">Fees:</label>
         <select name="fees" id="" class="crete"  required>

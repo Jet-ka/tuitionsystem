@@ -22,10 +22,15 @@
          <!--navbar--> 
    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/page/<%=userid%>">
+     <% if(userid==null){%>
+        <a class="navbar-brand" href="#">Record.com</a>
+     <% }else{%>
+        <a class="navbar-brand" href="/page/<%=userid%>">  Record.com</a>
+     <% }%>
+      
       <!--i can put logo--> 
         
-        Record.com</a>
+      
    <!--   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button> -->
@@ -75,7 +80,7 @@
             <form action="/findup/<%=info._id%>" method="get">
             <a href="/findup/<%=info._id%>"><i class="fa fa-edit" style="font-size:30px;color:green"></i></a>
             </form>
-            <form action="/finddel/<%=info._id%>" method="post">
+            <form action="/finddel/<%=info._id%>" method="POST">
                <a href="/finddel/<%=info._id%>"> <i class="fa fa-trash" style="font-size:30px;color:red"></i></a>
             </form>
             </div>

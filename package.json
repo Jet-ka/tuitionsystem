@@ -4,7 +4,7 @@
   "description": "jetlin system",
   "main": "node index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "$schema": "./package.schema.json",
   "type": "module",
