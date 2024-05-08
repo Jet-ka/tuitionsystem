@@ -9,32 +9,28 @@
     <meta name="keywords" content=" tutor portal, student attendance, contact details ">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-      *{
-        margin:0%;
-        padding:0%
-      }
-      .batchid{
-        display:flex;
-        flex-direction: column;
-        justify-content:center;
-        align-items:center;
-        height:500px;
-        padding-top:5px;
-        padding-left:10px;
-      }
-      .crete{
-      width:100%;
-      padding-left: 10px;
-      font-size: 1.2rem;
-      border-radius:20px;
-     height:29px;
-     border:1px solid green;
 
-      }
 
-      .footer{
-    margin-top:200px;
+</head>
+<style>
+  *{
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+.mainbox{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 20px;
+  height:400px;
+  gap:20px;
+}
+
+
+
+  .footer{
+    margin-top:400px;
     padding-top:8px;
     width:100%;
     display:flex;
@@ -58,42 +54,60 @@
 .footthree{
     text-align:center;
 }
-    </style>
-</head>
+   
+</style>
 <body>
-   <!--navbar--> 
+      <!--navbar--> 
    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/page/<%=infos._id%>">
+      <a class="navbar-brand" href="/page/<%=infos%>">
       <!--i can put logo--> 
-        
-        Attnify.Com</a>
+    
+        Attnify.com</a>
    <!--   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button> -->
       <div class=" navbar-expand" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="/page/<%=infos._id%>">Home</a>
+          <a class="nav-link active" aria-current="page" href="/page/<%=infos%>">Home</a>
           <a class="nav-link active" href="/">Logout</a>
-          <a class="nav-link active" href="/currentaffair/<%=infos._id%>">Current affair</a>
+          <a class="nav-link active" href="/currentaffair/<%=infos%>">Current affair</a>
+          
       
         </div>
       </div>
     </div>
-  </nav>
-
-  <!--add batch name button or acnhor-->
- 
-  <div class="batchid">
-    <div><h4>New Batch</h4></div>
-    <form action="/batch/<%=infos._id%>" method="post" class="batchform">
-      <input type="text" class="crete"  name="name" placeholder="Batch name" required><br><br>
-      <input type="text" class="crete"  name="time" placeholder="time" reuired><br><br>
-     
-      <button class="btn btn-success"  type="submit">Submit</button>
+  </nav><br>
+  <div class="mainbox">
+    <h3>ContactUs/Feedbacks</h3>
+    <form action="https://formspree.io/f/xnqewebw" method="post" class="form-control">
+      <label for="name">
+        Name:
+      </label>
+      <input type="text" class="form-control"  name="name" placeholder="Username" required ><br>
+      <label for="email">
+        Email:
+      </label>
+      <input type="email" class="form-control"  name="email" placeholder="name@gmail.com" required ><br>
+      <label for="query">
+        Message:
+      </label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message"></textarea><br>
+      <button class="btn btn-primary" type="submit">Submit</button>
     </form>
-
   </div>
+
+
+
+
+
+
+
+
+
+
+
+
   <div class="footer">
     <div class="footone">
       <a href="#"> <i class="fa fa-facebook" style="font-size:25px;color:green"></i></a> 
@@ -101,13 +115,13 @@
   
     </div>
     <div class="foottwo">
-      <a href="/about/<%=infos._id%>">About</a>
-      <a href="/privacy/<%=infos._id%>">Privacy</a>
-      <a href="/contactus/<%=infos._id%>">Contactus</a>
+      <a href="/about/<%=infos%>">About</a>
+      <a href="/privacy/<%=infos%>">Privacy</a>
+      <a href="/contactus/<%=infos%>">Contactus</a>
     </div>
     <div class="footthree"><h5>&copy;Attnify.Com:2024</h5></div>
     
   
   </div>
+
 </body>
-</html>

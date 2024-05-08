@@ -10,6 +10,7 @@ import nodemailer from 'nodemailer';
 
 import {user,batch,student, record,ResetToken,current } from './module/record.js';
 //import record from './module/record.js';
+import contactus from './routes/contactus.js';
 const app=express();
 
 app.set('view engine','ejs');
@@ -56,7 +57,13 @@ app.post('/',async function(req,res){
      // console.log(err)
      res.send('error')
   }
-})
+});
+
+//conatactuslogic middileware
+//id tu conatctus.js t pam /contactus/<%=infos._id%> conatctus app.use t aru id tu router.get('/:id')
+app.use('/contactus',contactus);
+
+//conatctus end
 
 //login
 
@@ -205,6 +212,7 @@ app.get('/deleteaffair/:id',async (req,res)=>{
 //current afair start for user when they click current affair section
 app.get('/currentaffair/:id',async function(req,res){
   try {
+    //user id
     const id=req.params.id;
     const result= await current.find();
    // console.log(result)
@@ -380,12 +388,6 @@ app.post('/reset', async function(req,res){
 
 
 //forgetpassword end
-
-
-
-
-
-
 
 
 //page t ahibo every time home t nav click korile
