@@ -96,6 +96,13 @@
 
   <!--current affair will show for user-->  
    <!--below current affair come -->
+   <% for (let i = infos.length - 1; i >= 0; i--) { %>
+    <div class="one">
+      <h3><%= infos[i].day %></h3>
+      <pre><%= infos[i].topic %></pre>
+    </div>
+  <% } %>
+  <!----
    <% infos.forEach(function(info){%>
     <div class="one">
     <h3><%=info.day%></h3>
@@ -103,6 +110,7 @@
 
 </div>
 <% })%>
+-->
 </div>
 
 </body>

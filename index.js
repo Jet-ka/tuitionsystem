@@ -65,6 +65,10 @@ app.use('/contactus',contactus);
 
 //conatctus end
 
+//job notification start
+app.use('/job',contactus);
+//job notification end
+
 //login
 
 app.get('/',function(req,res){
