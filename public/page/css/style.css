@@ -223,3 +223,30 @@ ul{
 .footthree{
     text-align:center;
 }
+@media  screen and (min-width:992px) {
+    .footer{
+        margin-top:600px;
+        padding-top:8px;
+        width:100%;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction:column;
+        background-color: black;
+        color:#fff;
+    }
+    .footone{
+        display:flex;
+        justify-content: center;
+        gap:10px;
+    }
+    .foottwo{
+        display:flex;
+        justify-content: center; 
+        text-decoration-line: none; 
+        gap:10px;
+    }
+    .footthree{
+        text-align:center;
+    }  
+}
