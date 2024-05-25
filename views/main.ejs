@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page</title>
+    <title>Mainpage</title>
+ 
     <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
     <meta name="description" content="Manage student attendance and details efficiently with our tutor portal.">
     <meta name="keywords" content=" tutor portal, student attendance, contact details ">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="batch/css/style.css">
-    <link rel="stylesheet" href="batchdelete/css/style.css">
-    <link rel="stylesheet" href="record/css/style.css">
+    <link rel="stylesheet" href="css/main.css">
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-512Y1MVSGY"></script>
 <script>
@@ -22,6 +21,7 @@
 
   gtag('config', 'G-512Y1MVSGY');
 </script>
+
 </head>
 <body>
    <!--navbar--> 
@@ -40,42 +40,49 @@
         <div class="navbar-nav" >
           <a class="nav-link  active" aria-current="page" href="/main/<%=infos._id%>">Home</a>
           <a class="nav-link active " href="/">Logout</a>
-          <a class="nav-link  active" href="/currentaffair/<%=infos._id%>">Current affair</a>
-   <!--     <a class="nav-link  active" href="/job/value/<%=infos._id%>">Job notification</a> 
-   <a class="nav-link  active" href="/test/<%=infos._id%>">Test Series</a>-->
+      <!---   <a class="nav-link  active" href="/currentaffair/<%=infos._id%>">Current affair</a>
+       <a class="nav-link  active" href="/job/value/<%=infos._id%>">Job notification</a> 
+   <a class="nav-link  active" href="/test/<%=infos._id%>">Test Series</a> -->
           
         </div>
       </div>
     </div>
   </nav><br>
  
-  <h5>Welcome <%=infos.name%></h5><br>
-  <div class="batch">
-    <a class="btn btn btn-success" aria-current="page" href="/batchcreate/<%=infos._id%>">New Batch</a>
-  </div>
- 
-  <br>
-  
-<%if(infos){%>
-  <div class="batchcard">
-  <%infos.batchname.forEach(function(info){%>
-    <div class="cardthree">
-      <ul>
-      <li><%=info.name%></li>
-      <li><%=info.time%></li>
-    </ul>
-    <!--batch id i got from here so i need to add student in batch so each batch has different student-->
-    <div class="edit">
-      <a class="btn btn-success" href="/home/<%=info._id%>">Browse</a>
-      <a class="btn btn-danger" href="/batchdelete/<%=info._id%>">Delete</a>
-    </div>
-    </div>
-  <%})%>
+  <h5>Welcome <%=infos.name%></h5> <br>
+  <div style="display:flex;justify-content: flex-end;margin-top:0px; ">
+    <form action="/deleteuser/<%=infos._id%>" method="post" id="formdelete" >
+      <button type="submit" id="delete" class="btn btn btn-danger" style="height:32px" >Close Account</button>
+    </form>
    
-  </div>
-<%}else{%>>
-  <p>Add Batch</p>
-<%}%>
+  </div><br>
+<div class="mainbox">
+    <div class="card">
+  <h3>Current Affairs</h3>
+  <p>Get daily current affairs.</p>
+  <a class="btn btn-success"  href="/currentaffair/<%=infos._id%>">Current Affairs</a>
+    </div>
+
+    <div class="card">
+<h3>Attendance</h3>
+<p>Track your students attendance and payments.</p>
+<a class="btn btn-success"  href="/page/<%=infos._id%>">Attendance</a>
+    </div>
+<!----
+    <div class="card">
+        <h3>Mock Test</h3>
+        <p>Explore various job's Mock Tests.</p>
+        <a class="btn btn-success"  href="/test/<%=infos._id%>">Browse</a>
+    </div>
+
+    <div class="card">
+        <h3>Job's Notifications</h3>
+        <p>Explore various Government and Private jobs notification.</p>
+        <a class="btn btn-success"  href="/job/<%=infos._id%>">Browse</a>
+    </div>
+  -->
+
+</div>
 
 <div class="footer">
   <div class="footone">
@@ -90,8 +97,18 @@
   </div>
   <div class="footthree"><h5>&copy;Attnify.in:2024</h5></div>
   
-
 </div>
+<script>
+document.getElementById('delete').addEventListener('click', function(event) {
+  const confirmDelete = confirm("Are you sure you want to close your account permanently?");
+  if (!confirmDelete) {
+      event.preventDefault(); // Prevent form submission
+  } else {
+      document.getElementById('formdelete').submit(); // Submit the form
+  }
+});
 
+
+</script>
 </body>
 </html>

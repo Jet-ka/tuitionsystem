@@ -34,7 +34,7 @@
      <% if(userid==null){%>
         <a class="navbar-brand" href="#">Attnify.in</a>
      <% }else{%>
-        <a class="navbar-brand" href="/page/<%=userid%>">Attnify.in</a>
+        <a class="navbar-brand" href="/main/<%=userid%>">Attnify.in</a>
      <% }%>
       
       <!--i can put logo--> 
@@ -48,7 +48,7 @@
           <% for (var i = 0; i < infos.length; i++) { %>
             <% if (i === 0) { %>
                 <!-- Display the first user ID -->
-                <a class="nav-link active" href="/page/<%= infos[0].user_id %>">Home</a>
+                <a class="nav-link active" href="/main/<%= infos[0].user_id %>">Home</a>
             <% } else { %>
                 <!-- Hide subsequent user IDs -->
                 <a class="nav-link active" id="trick" style="display: none;" href="/page/<%= infos[i].user_id %>">Home</a>

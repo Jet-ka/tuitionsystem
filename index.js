@@ -10,7 +10,10 @@ import nodemailer from 'nodemailer';
 
 import {user,batch,student, record,ResetToken,current } from './module/record.js';
 //import record from './module/record.js';
+import main from './routes/main.js';
 import contactus from './routes/contactus.js';
+import test from './routes/test.js';
+import job from './routes/job.js';
 const app=express();
 
 app.set('view engine','ejs');
@@ -50,7 +53,8 @@ app.post('/',async function(req,res){
  if(one && one.password===hashpassword){
   //const two= await student.find({}).populate({path:'user._id'});
  // console.log(two);
-  res.render('page.ejs',{infos:one});
+ // res.render('page.ejs',{infos:one});
+ res.render('main.ejs',{infos:one})
  }
 
   }catch(err){
@@ -59,6 +63,13 @@ app.post('/',async function(req,res){
   }
 });
 
+
+//main start i.e home click
+app.use('/main',main)
+//main end
+
+
+
 //conatactuslogic middileware
 //id tu conatctus.js t pam /contactus/<%=infos._id%> conatctus app.use t aru id tu router.get('/:id')
 app.use('/contactus',contactus);
@@ -66,8 +77,16 @@ app.use('/contactus',contactus);
 //conatctus end
 
 //job notification start
-app.use('/job',contactus);
+app.use('/job',job);
 //job notification end
+
+//test page start
+app.use('/test',test);
+app.use('/quiz',test);
+app.use('/result',test)
+//test page end
+
+
 
 //login
 
@@ -84,8 +103,8 @@ app.post('/login', async function(req,res){
 if(result){
 const one= await bcrypt.compareSync(password, result.password);
 if(result.name==name && one){
-// res.render('home.ejs',{infos:result})
-     res.render('page.ejs',{infos:result});
+ res.render('main.ejs',{infos:result})
+    // res.render('page.ejs',{infos:result});
 }else{
  // res.status(404).send({'Message':'Invalid Details'})
  const data='Invalid details';

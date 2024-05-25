@@ -13,14 +13,7 @@ router.get('/:id', async (req,res)=>{
     }
 })
 
-router.get('/value/:id',async (req,res)=>{
-    try {
-       const id=req.params.id;
-       res.render('job.ejs',{infos:id}) 
-    } catch (error) {
-       res.send('error') 
-    }
-})
+
 
 
 
