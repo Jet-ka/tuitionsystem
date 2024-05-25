@@ -22,6 +22,27 @@ app.set('view engine','ejs');
  app.use(bodyparser.json({limit:'50kb'}));
 app.use(express.static('public'));
 
+
+//main start i.e home click
+app.use('/main',main)
+//main end
+
+//conatactuslogic middileware
+//id tu conatctus.js t pam /contactus/<%=infos._id%> conatctus app.use t aru id tu router.get('/:id')
+app.use('/contactus',contactus);
+
+//conatctus end
+
+//job notification start
+app.use('/job',job);
+//job notification end
+
+//test page start
+app.use('/test',test);
+app.use('/quiz',test);
+app.use('/result',test)
+//test page end
+
 //datbase
 //mongoose.connect('mongodb://127.0.0.1:27017/newdb');
 
@@ -62,30 +83,6 @@ app.post('/',async function(req,res){
      res.send('error')
   }
 });
-
-
-//main start i.e home click
-app.use('/main',main)
-//main end
-
-
-
-//conatactuslogic middileware
-//id tu conatctus.js t pam /contactus/<%=infos._id%> conatctus app.use t aru id tu router.get('/:id')
-app.use('/contactus',contactus);
-
-//conatctus end
-
-//job notification start
-app.use('/job',job);
-//job notification end
-
-//test page start
-app.use('/test',test);
-app.use('/quiz',test);
-app.use('/result',test)
-//test page end
-
 
 
 //login
