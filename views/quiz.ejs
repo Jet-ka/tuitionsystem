@@ -18,37 +18,57 @@
 </script>
 
 </head>
+<style>
+  .main{
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-bottom:10px;
+  }
+  .headline{
+    text-align: center;
+    text-decoration: underline solid violet;
+  }
+</style>
 <body>
-  <% if(sub=='history') {%>
-    <form action="/result/num/<%=infos%>" method="post">
-      <!--Assam history-->
-<input type="hidden" name="subject" value="assamhistory">
- <!---- <input type="hidden" name="id" value="<%=infos%>"> -->
+  <div class="headline">
+    <h3>Test</h3>
+  </div>
+<div class="main">
+
+
+ <form action="/result/num/<%=infos%>" method="post">
+      <!--value meeans what subject -->
+      
+<input type="hidden" name="value" value="<%=value%>">
+<!---
+  <input type="hidden" name="id" value="<%=infos%>"> -->
       <!---->
+      
       <div class="qone">
-        <p>Q.1: Zn + CuSO4 - ZnSO4(aq)+ Cu(s) </p>
-        <ol>
-            <li>
-            <input type="radio" name="one" value="Doubledisplacement">Doubledisplacement
-            </li>
-            <li>
-                <input type="radio" name="one" value="displacement">Displacement
-            </li>
-            <li>
-                <input type="radio" name="one" value="combustion">Combustion
-           </li>
-           <li>
-            <input type="radio" name="one" value="n">Do not know
-       </li>
-    
-        </ol>
+     <% sub.forEach(function(items,index){%>
+      <p><%=index+1%>. <%=items.question%> </p>
+   
+      <ol>
+       <%items.options.forEach(function(opt){%>
+
+        <li>
+        <input type="radio" name="<%=items.number%>" value="<%=opt%>"><%=opt%>
+        </li>
+        
+      <%})%>
+      <li>
+        <input type="radio" name="<%=items.number%>" value="0">Don't Know
+        </li>
+
+    </ol>
+
+    <%  }) %>
+      
        </div>
-<button type="submit">Submit</button>
+<button type="submit" class="btn-primary">Submit</button>
     </form>
 
+  </div>
 
-  <% } if (sub=='quant'){%>
-    <p>Quant</p>
- <% }%>
 </body>
 </html>
