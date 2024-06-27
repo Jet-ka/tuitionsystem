@@ -1,1 +1,1 @@
-It is a student attendance system for Tutor where each tutor can manage their student daily records besides fees details
+It is a student attendance system for Tutor who are currently job aspirants so in here one job aspirants will find everything like Job notification,Mock Test and Current affairs and students attendance system since job aspirant's only source of income currently come from tuition.
